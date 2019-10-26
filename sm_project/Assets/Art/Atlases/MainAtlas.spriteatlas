@@ -29,29 +29,14 @@ SpriteAtlas:
       enableRotation: 1
       enableTightPacking: 1
     variantMultiplier: 1
-    packables:
-    - {fileID: 102900000, guid: 587937f8abc834f699826e015c390df1, type: 3}
-    totalSpriteSurfaceArea: 1022629
+    packables: []
+    totalSpriteSurfaceArea: 5397954
     bindAsDefault: 1
     storedHash:
       serializedVersion: 2
-      Hash: 00000000000000000000000000000000
+      Hash: d469f735ffc98608f9bea67ef35bfb3f
   m_MasterAtlas: {fileID: 0}
-  m_PackedSprites:
-  - {fileID: 21300000, guid: ac72d983e317f45429405ebf30d6590a, type: 3}
-  - {fileID: 21300000, guid: 3bb4b434187ae4c1aaaaa7dc29dd7fef, type: 3}
-  - {fileID: 21300000, guid: d5b33a94cdbf04738b168fa9165163bb, type: 3}
-  - {fileID: 21300000, guid: 4a8e2ffa2caa749e682d85e33c33d2fe, type: 3}
-  - {fileID: 21300000, guid: 89b106bd458834ba693226cde5783380, type: 3}
-  - {fileID: 21300000, guid: a59f233f5b0a54f7f9778686df8f911d, type: 3}
-  - {fileID: 21300000, guid: 47ec1faf0e6b24d4c8404a51e3aacda3, type: 3}
-  m_PackedSpriteNamesToIndex:
-  - preview
-  - main_pc_bg
-  - second_pc_one_item
-  - main_pc_one_item
-  - second_pc_lamp
-  - second_pc_bg
-  - preview_second
+  m_PackedSprites: []
+  m_PackedSpriteNamesToIndex: []
   m_Tag: MainAtlas
   m_IsVariant: 0
