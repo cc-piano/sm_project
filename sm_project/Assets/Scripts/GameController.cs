@@ -10,6 +10,7 @@ public class GameController : Singleton<GameController>
     public List<AbstractMiningView> MiningPrefabs;
     public UiController UiController;
     public CoinSpawner CoinSpawner;
+    public SoundController SoundController;
     
     void Awake()
     {

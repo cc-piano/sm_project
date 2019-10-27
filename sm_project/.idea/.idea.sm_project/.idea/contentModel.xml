@@ -15,9 +15,11 @@
           <e p="GameScaler.cs" t="Include" />
           <e p="Popup.cs" t="Include" />
           <e p="Singleton.cs" t="Include" />
+          <e p="SoundController.cs" t="Include" />
           <e p="StockController.cs" t="Include" />
           <e p="StockItemView.cs" t="Include" />
           <e p="StockTextController.cs" t="Include" />
+          <e p="StockTextView.cs" t="Include" />
           <e p="UiController.cs" t="Include" />
           <e p="User.cs" t="Include" />
           <e p="View" t="Include">

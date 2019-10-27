@@ -25,11 +25,15 @@ public class UiController : MonoBehaviour
     private void OpenStocks()
     {
         Stocks.gameObject.SetActive(true);
+        GameController.Instance.SoundController.FadeMain();
+        GameController.Instance.SoundController.PlayStocks();
     }
 
     private void CloseStocks()
     {
         Stocks.gameObject.SetActive(false);
+        GameController.Instance.SoundController.FadeStock();
+        GameController.Instance.SoundController.PlayMain();
     }
 
     private void ButtonClean()
