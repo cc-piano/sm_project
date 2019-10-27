@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -656,6 +656,7 @@ MonoBehaviour:
   Name: main_pc
   CryptoMiningPerSecond: 0.1
   ShowCoinEvery: 4
+  Pause: 0
 --- !u!1 &182149588
 GameObject:
   m_ObjectHideFlags: 0
@@ -2228,15 +2229,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 
-  CryptoMiningPerSecond: 0
-  ShowCoinEvery: 0
+  CryptoMiningPerSecond: 1.1
+  ShowCoinEvery: 1
+  Pause: 0
   PriceText: {fileID: 589175631}
   Animator: {fileID: 654622929}
   Lamp: {fileID: 1137272799}
-  LampColor: {r: 0, g: 0, b: 0, a: 0}
+  LampColor: {r: 0.5137255, g: 1, b: 0, a: 1}
   Button: {fileID: 773052784}
-  Price: 0
-  PriceIncrement: 0
+  Price: 50000
+  PriceIncrement: 888888888
   IsUnlocked: 0
 --- !u!95 &654622929
 Animator:
@@ -2775,7 +2777,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 6.56e-43, y: 0, z: 0, w: 1e-45}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3057,15 +3059,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 
-  CryptoMiningPerSecond: 1
-  ShowCoinEvery: 1
+  CryptoMiningPerSecond: 4
+  ShowCoinEvery: 0.3
+  Pause: 0
   PriceText: {fileID: 689148447}
   Animator: {fileID: 744793525}
   Lamp: {fileID: 1861230810}
-  LampColor: {r: 0.9245283, g: 0.100302614, b: 0.100302614, a: 0.62352943}
+  LampColor: {r: 0.9245283, g: 0.100302614, b: 0.100302614, a: 1}
   Button: {fileID: 1791514743}
-  Price: 1
-  PriceIncrement: 2
+  Price: 400000
+  PriceIncrement: 88888888
   IsUnlocked: 0
 --- !u!95 &744793525
 Animator:
@@ -3499,15 +3502,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 
-  CryptoMiningPerSecond: 0
-  ShowCoinEvery: 0
+  CryptoMiningPerSecond: 2
+  ShowCoinEvery: 0.5
+  Pause: 0
   PriceText: {fileID: 1353706202}
   Animator: {fileID: 862191031}
   Lamp: {fileID: 142578561}
-  LampColor: {r: 0, g: 0, b: 0, a: 0}
+  LampColor: {r: 1, g: 0.6784314, b: 0, a: 1}
   Button: {fileID: 382000183}
-  Price: 0
-  PriceIncrement: 0
+  Price: 150000
+  PriceIncrement: 888888
   IsUnlocked: 0
 --- !u!95 &862191031
 Animator:
@@ -4543,15 +4547,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 
-  CryptoMiningPerSecond: 0
-  ShowCoinEvery: 0
+  CryptoMiningPerSecond: 0.2
+  ShowCoinEvery: 5
+  Pause: 0
   PriceText: {fileID: 1968070276}
   Animator: {fileID: 1129475704}
   Lamp: {fileID: 1941763586}
-  LampColor: {r: 0.6037736, g: 0.1509434, b: 0.5445202, a: 1}
+  LampColor: {r: 0.08235294, g: 0, b: 1, a: 1}
   Button: {fileID: 697750504}
-  Price: 1000
-  PriceIncrement: 0
+  Price: 2000
+  PriceIncrement: 888888888888
   IsUnlocked: 0
 --- !u!95 &1129475704
 Animator:
@@ -4846,7 +4851,7 @@ MonoBehaviour:
   CloseStocksButton: {fileID: 8394642691337826168}
   Clean: {fileID: 47321517}
   CleanText: {fileID: 320820782}
-  CleanPrice: 0
+  CleanPrice: 750000
   CleanAnim: {fileID: 47321520}
   TrashAnim: {fileID: 953118999}
   DecorAnim: {fileID: 994822729}
@@ -5067,15 +5072,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: 
-  CryptoMiningPerSecond: 0
-  ShowCoinEvery: 0
+  CryptoMiningPerSecond: 0.5
+  ShowCoinEvery: 2
+  Pause: 0
   PriceText: {fileID: 1390071685}
   Animator: {fileID: 1260606074}
   Lamp: {fileID: 1475105428}
-  LampColor: {r: 0, g: 0, b: 0, a: 0}
+  LampColor: {r: 0, g: 0.93333334, b: 1, a: 1}
   Button: {fileID: 375416564}
-  Price: 0
-  PriceIncrement: 0
+  Price: 10000
+  PriceIncrement: 88888888
   IsUnlocked: 0
 --- !u!95 &1260606074
 Animator:
@@ -7734,8 +7740,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MinRefreshRate: 1
-  MaxRefreshRate: 4
-  MinStockValueRate: 100
+  MaxRefreshRate: 1.4
+  MinStockValueRate: 400
   MaxStockValueRate: 1000
   StockItemViews:
   - {fileID: 8394642691842170302}
