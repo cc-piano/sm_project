@@ -41,7 +41,7 @@ public class Popup : MonoBehaviour
         UpdateInfo();
         for (int i = 0; i < GameController.Instance.MiningPrefabs.Count; i++)
         {
-            GameController.Instance.MiningPrefabs[i].StopCours();
+            GameController.Instance.MiningPrefabs[i].Pause = true;
         }
     }
 
@@ -62,7 +62,7 @@ public class Popup : MonoBehaviour
     {
         for (int i = 0; i < GameController.Instance.MiningPrefabs.Count; i++)
         {
-            GameController.Instance.MiningPrefabs[i].ContinueMining();
+            GameController.Instance.MiningPrefabs[i].Pause = false;
         }
         AnimatorCallback.Callback = null;
         PopupClose?.Invoke();

@@ -12,6 +12,7 @@ namespace View
         public double CryptoMiningPerSecond;
         public float ShowCoinEvery;
         private RectTransform RectTransform;
+        public bool Pause;
 
         private void Start()
         {
@@ -23,16 +24,6 @@ namespace View
         {
         }
 
-        public void StopCours()
-        {
-            StopAllCoroutines();
-        }
-
-        public void ContinueMining()
-        {
-            StartMining();
-        }
-
         protected void StartMining()
         {
             StartCoroutine(UpdateMining());
@@ -41,14 +32,18 @@ namespace View
 
         private IEnumerator ShowCoin()
         {
+            yield return new WaitUntil(()=>!Pause);
             yield return new WaitForSeconds(ShowCoinEvery);
+            yield return new WaitUntil(()=>!Pause);
             GameController.Instance.CoinSpawner.SpawnCoin(RectTransform);
             StartCoroutine(ShowCoin());
         }
 
         private IEnumerator UpdateMining()
         {
+            yield return new WaitUntil(()=>!Pause);
             GameController.Instance.UpdateUserCryptoBalance(CryptoMiningPerSecond);
+            yield return new WaitUntil(()=>!Pause);
             yield return new WaitForSeconds(UpdateTime);
             StartCoroutine(UpdateMining());
         }
