@@ -35,7 +35,7 @@ public class Popup : MonoBehaviour
 
     public void OpenPopup(float course)
     {
-        Info.text = string.Format(Info.text, $"{course:0.00}");
+        Info.text = $"1 биткоин = {course:0.00}$";
         Course = course;
         CurrentBtcValue = GameController.Instance.User.UserCryptoBalnce;
         UpdateInfo();
@@ -45,6 +45,7 @@ public class Popup : MonoBehaviour
     {
         GameController.Instance.UpdateUserCryptoBalance(-CurrentBtcValue);
         GameController.Instance.UpdateUserMoneyBalance(CurrentBtcValue * Course);
+        OpenPopup(Course);
     }
 
     private void OnCloseClick()

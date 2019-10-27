@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: MainBalance
   m_EditorClassIdentifier: 
   UserStartDollarAmount: 0
-  UserStartCryptoAmount: 0
+  UserStartCryptoAmount: 1

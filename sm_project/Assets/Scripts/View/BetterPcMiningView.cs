@@ -20,6 +20,7 @@ namespace View
         private Color LampInitColor;
         private bool IsAnimating;
         private bool IsUserCanBuy;
+        private static event Action UpdatePrice;
         
         protected override void DoStart()
         {
@@ -37,6 +38,7 @@ namespace View
             PriceText.text = Price.ToString();
             Button.onClick.AddListener(OnButtonClick);
             StartCoroutine(PriceCheckerService());
+            UpdatePrice += OnPriceUpdate;
         }
 
         private void OnButtonClick()
@@ -46,7 +48,10 @@ namespace View
 
             if (GameController.Instance.User.UserMoneyBalnce >= Price)
             {
-
+                Animator.SetTrigger("unlock");
+                GameController.Instance.UpdateUserMoneyBalance(-Price);
+                UpdatePrice?.Invoke();
+                StartCoroutine(WaitAndStartMining());
             }
             else
             {
@@ -59,6 +64,21 @@ namespace View
                             callback: () => { IsAnimating = false; }));
                     }));
             }
+        }
+
+        private IEnumerator WaitAndStartMining()
+        {
+            yield return new WaitForSeconds(1.0f);
+            StartMining();
+        }
+
+        private void OnPriceUpdate()
+        {
+            if (PriceText == null)
+                return;
+            
+            Price *= PriceIncrement;
+            PriceText.text = Price.ToString();
         }
 
 

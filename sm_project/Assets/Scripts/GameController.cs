@@ -14,6 +14,8 @@ public class GameController : Singleton<GameController>
     void Awake()
     {
         User = new User(UserBalanceData);
+        UiController.userMoneyField.Init(User.UserMoneyBalnce);
+        UiController.userCryptoField.Init(User.UserCryptoBalnce);
 //        for (int i = 0; i < User.BalanceData.UserOwnedMinings.Count; i++)
 //        {
 //            for (int j = 0; j < MiningPrefabs.Count; j++)
@@ -29,7 +31,7 @@ public class GameController : Singleton<GameController>
     public void UpdateUserMoneyBalance(double amount)
     {
         User.UserMoneyBalnce += amount;
-        UiController.userMoneyField.UpdateScore(amount);
+        UiController.userMoneyField.UpdateScore(User.UserMoneyBalnce);
     }
     
     public void UpdateUserCryptoBalance(double amount)

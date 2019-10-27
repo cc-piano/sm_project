@@ -6,7 +6,6 @@
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="boxc.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="AnimatorCallback.cs" t="Include" />
           <e p="BalanceData.cs" t="Include" />
@@ -19,7 +18,6 @@
           <e p="StockController.cs" t="Include" />
           <e p="StockItemView.cs" t="Include" />
           <e p="StockTextController.cs" t="Include" />
-          <e p="StockTextView.cs" t="Include" />
           <e p="UiController.cs" t="Include" />
           <e p="User.cs" t="Include" />
           <e p="View" t="Include">

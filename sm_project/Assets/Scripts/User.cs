@@ -11,5 +11,7 @@ public class User
     public User(BalanceData balanceData)
     {
         BalanceData = balanceData;
+        UserMoneyBalnce = balanceData.UserStartDollarAmount;
+        UserCryptoBalnce = balanceData.UserStartCryptoAmount;
     }
 }

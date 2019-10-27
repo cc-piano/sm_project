@@ -14,6 +14,7 @@ public class Counter : MonoBehaviour
     public void Init(double initScore)
     {
         score = initScore;
+        scoreText.text = $"{score:0.00}";
     }
 
     public void UpdateScore(double to)
