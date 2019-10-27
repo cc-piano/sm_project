@@ -39,6 +39,9 @@ public class CoinSpawner : MonoBehaviour
         freeCoinTr.localPosition = Vector3.zero;
         freeCoinTr.localScale = Vector3.one;
         freeCoinTr.SetSiblingIndex(parent.childCount);
+        if (parent.localScale.x < 0)
+            freeCoinTr.localScale =
+                new Vector3(-freeCoinTr.localScale.x, freeCoinTr.localScale.y, freeCoinTr.localScale.z);
     }
 
     private void OnCoinAnimated(AnimatorCallback freeCoin)

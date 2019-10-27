@@ -12,17 +12,19 @@ public class StockController : MonoBehaviour
     public float MaxStockValueRate;
 
     public List<StockItemView> StockItemViews;
-    public List<Button> Buttons;
+    public Button FirstButton;
+    public Button SecondButton;
+    public Button ThirdButton;
+    //public List<Button> Buttons;
     public Popup Popup;
+    private Coroutine Cour;
     
     // Start is called before the first frame update
     void Start()
     {
-        for (int i = 0; i < Buttons.Count; i++)
-        {
-            int temp = i;
-            Buttons[i].onClick.AddListener(() => OnButtonClick(temp));
-        }
+        FirstButton.onClick.AddListener(() => {OnButtonClick(0); });
+        SecondButton.onClick.AddListener(() => {OnButtonClick(1); });
+        ThirdButton.onClick.AddListener(() => {OnButtonClick(2); });
 
         for (int i = 0; i < StockItemViews.Count; i++)
         {
@@ -30,7 +32,7 @@ public class StockController : MonoBehaviour
         }
         
         //Refresh();
-        StartCoroutine(StockRefreshService());
+        Cour = GameController.Instance.StartCoroutine(StockRefreshService());
     }
 
     private void OnButtonClick(int index)
@@ -38,7 +40,11 @@ public class StockController : MonoBehaviour
         Debug.LogError(StockItemViews[index].StockCourse + " || " + index);
         Popup.gameObject.SetActive(true);
         Popup.OpenPopup(StockItemViews[index].StockCourse);
-        StopAllCoroutines();
+        if (Cour != null)
+        {
+            StopCoroutine(Cour);
+        }
+
         Popup.PopupClose += OnPopupClose;
     }
 
@@ -46,7 +52,7 @@ public class StockController : MonoBehaviour
     {
         Popup.PopupClose -= OnPopupClose;
         Popup.gameObject.SetActive(false);
-        StartCoroutine(StockRefreshService());
+        Cour = GameController.Instance.StartCoroutine(StockRefreshService());
     }
 
     private IEnumerator StockRefreshService()
@@ -54,7 +60,7 @@ public class StockController : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(MinRefreshRate, MaxRefreshRate));
 
         Refresh();
-        StartCoroutine(StockRefreshService());
+        Cour = GameController.Instance.StartCoroutine(StockRefreshService());
     }
 
     private void Refresh(StockItemView defaultItemView = null)
