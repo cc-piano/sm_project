@@ -20,6 +20,11 @@ namespace DefaultNamespace
         public float DelayBeforeSpawn;
         public float MinAmount;
         public float DurationOfMovement;
+        public bool IsBackWards;
+        public float RandomMinValue;
+        public float RandomMaxValue;
+        public Color RandomMinColor;
+        public Color RandomMaxColor;
         private RectTransform RectTransform;
 
         private IEnumerator Start()
@@ -66,10 +71,25 @@ namespace DefaultNamespace
             StockTextView temp = freeCoinTr.gameObject.AddComponent<StockTextView>();
             float from = -freeText.rectTransform.rect.width / 2;
             float to = Screen.width + freeText.rectTransform.rect.width / 2;
-            temp.fromX = from;
-            temp.toX = to;
+            if (IsBackWards)
+            {
+                temp.fromX = to;
+                temp.toX = from;
+            }
+            else
+            {
+                temp.fromX = from;
+                temp.toX = to;   
+            }
             temp.RectTransform = temp.GetComponent<RectTransform>();
             temp.duration = DurationOfMovement;
+            temp.RandomMinValue = RandomMinValue;
+            temp.RandomMaxValue = RandomMaxValue;
+            temp.RandomMinColor = RandomMinColor;
+            temp.RandomMaxColor = RandomMaxColor;
+            temp.Text = freeText;
+            temp.Init();
+            
             temp.gameObject.SetActive(true);
             //StartCoroutine(WaitForSpawn(freeText));
         }

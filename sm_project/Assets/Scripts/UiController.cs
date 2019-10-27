@@ -11,8 +11,12 @@ public class UiController : MonoBehaviour
     public Button OpenStocksButton;
     public Button CloseStocksButton;
     public Button Clean;
+    public Text CleanText;
+    public double CleanPrice;
+    public Animator CleanAnim;
     public Animator TrashAnim;
     public Animator DecorAnim;
+    public GameObject Loader;
     public GameObject Stocks;
 
     private void Start()
@@ -20,25 +24,53 @@ public class UiController : MonoBehaviour
         OpenStocksButton.onClick.AddListener(OpenStocks);
         CloseStocksButton.onClick.AddListener(CloseStocks);
         Clean.onClick.AddListener(ButtonClean);
+        CleanText.text = CleanPrice.ToString();
     }
 
     private void OpenStocks()
     {
-        Stocks.gameObject.SetActive(true);
-        GameController.Instance.SoundController.FadeMain();
-        GameController.Instance.SoundController.PlayStocks();
+        Loader.SetActive(true);
+        StartCoroutine(WaitForLoader());
+        StartCoroutine(HalfLoaderShowed(() =>
+        {
+            Stocks.gameObject.SetActive(true);
+            GameController.Instance.SoundController.FadeMain();
+            GameController.Instance.SoundController.PlayStocks();
+        }));
+    }
+
+    private IEnumerator WaitForLoader()
+    {
+        yield return new WaitForSeconds(1.0f);
+        Loader.SetActive(false);
+    }
+
+    private IEnumerator HalfLoaderShowed(Action callback)
+    {
+        yield return new WaitForSeconds(0.5f);
+        callback.Invoke();
     }
 
     private void CloseStocks()
     {
-        Stocks.gameObject.SetActive(false);
-        GameController.Instance.SoundController.FadeStock();
-        GameController.Instance.SoundController.PlayMain();
+        Loader.SetActive(true);
+        StartCoroutine(WaitForLoader());
+        StartCoroutine(HalfLoaderShowed(() =>
+        {
+            Stocks.gameObject.SetActive(false);
+            GameController.Instance.SoundController.FadeStock();
+            GameController.Instance.SoundController.PlayMain();
+        }));
     }
 
     private void ButtonClean()
     {
-        TrashAnim.enabled = true;
-        DecorAnim.gameObject.SetActive(true);
+        if (GameController.Instance.User.UserMoneyBalnce >= CleanPrice)
+        {
+            TrashAnim.enabled = true;
+            DecorAnim.gameObject.SetActive(true);
+            CleanAnim.enabled = true;
+            GameController.Instance.UpdateUserMoneyBalance(-CleanPrice);
+        }
     }
 }

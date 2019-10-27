@@ -12,7 +12,6 @@
           <e p="CoinSpawner.cs" t="Include" />
           <e p="Counter.cs" t="Include" />
           <e p="GameController.cs" t="Include" />
-          <e p="GameScaler.cs" t="Include" />
           <e p="Popup.cs" t="Include" />
           <e p="Singleton.cs" t="Include" />
           <e p="SoundController.cs" t="Include" />

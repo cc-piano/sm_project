@@ -37,7 +37,6 @@ public class StockController : MonoBehaviour
 
     private void OnButtonClick(int index)
     {
-        Debug.LogError(StockItemViews[index].StockCourse + " || " + index);
         Popup.gameObject.SetActive(true);
         Popup.OpenPopup(StockItemViews[index].StockCourse);
         if (Cour != null)
