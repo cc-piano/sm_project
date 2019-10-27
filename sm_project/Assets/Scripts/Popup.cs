@@ -39,6 +39,10 @@ public class Popup : MonoBehaviour
         Course = course;
         CurrentBtcValue = GameController.Instance.User.UserCryptoBalnce;
         UpdateInfo();
+        for (int i = 0; i < GameController.Instance.MiningPrefabs.Count; i++)
+        {
+            GameController.Instance.MiningPrefabs[i].StopCours();
+        }
     }
 
     private void OnAcceptClick()
@@ -56,6 +60,10 @@ public class Popup : MonoBehaviour
 
     private void AnimatorHided()
     {
+        for (int i = 0; i < GameController.Instance.MiningPrefabs.Count; i++)
+        {
+            GameController.Instance.MiningPrefabs[i].ContinueMining();
+        }
         AnimatorCallback.Callback = null;
         PopupClose?.Invoke();
     }

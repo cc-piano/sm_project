@@ -14,6 +14,7 @@ namespace View
         public Color LampColor;
         public Button Button;
         public double Price;
+        public double PriceIncrement;
         public bool IsUnlocked;
 
         private Color LampInitColor;
@@ -47,8 +48,12 @@ namespace View
             {
                 Animator.SetTrigger("unlock");
                 GameController.Instance.UpdateUserMoneyBalance(-Price);
-                StartCoroutine(ColorChange(Lamp.color, LampColor, 0.5f));
+                StartCoroutine(ColorChange(Lamp.color, LampColor, 0.5f, callback: () =>
+                {
+                    LampInitColor = Lamp.color;
+                }));
                 StartCoroutine(WaitAndStartMining());
+                Price *= PriceIncrement;
             }
             else
             {

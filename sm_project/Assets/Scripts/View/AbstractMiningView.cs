@@ -23,6 +23,16 @@ namespace View
         {
         }
 
+        public void StopCours()
+        {
+            StopAllCoroutines();
+        }
+
+        public void ContinueMining()
+        {
+            StartMining();
+        }
+
         protected void StartMining()
         {
             StartCoroutine(UpdateMining());

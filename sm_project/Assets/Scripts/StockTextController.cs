@@ -88,9 +88,11 @@ namespace DefaultNamespace
             temp.RandomMinColor = RandomMinColor;
             temp.RandomMaxColor = RandomMaxColor;
             temp.Text = freeText;
+            temp.IsBackwards = IsBackWards;
             temp.Init();
             
             temp.gameObject.SetActive(true);
+            temp.RectTransform.anchoredPosition = new Vector3(temp.fromX, temp.RectTransform.anchoredPosition.y);
             //StartCoroutine(WaitForSpawn(freeText));
         }
 
